@@ -1,5 +1,7 @@
 package Passes.classes;
 
+import java.time.LocalDateTime;
+
 public class Professional extends VisitPass {
     private String companyID;
     private Category category;
@@ -9,8 +11,8 @@ public class Professional extends VisitPass {
         // empty constructor
     }
 
-    public Professional(String applicationID, String companyID, Category category, String companyName) {
-        super(applicationID);
+    public Professional(String applicationID, String companyID, Category category, String companyName, LocalDateTime applyTimestamp) {
+        super(applicationID, applyTimestamp);
         this.companyID = companyID;
         this.category = category;
         this.companyName = companyName;
@@ -38,5 +40,22 @@ public class Professional extends VisitPass {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                    Visit Pass (Professional)
+                ------------------------------------
+                Application ID  : %s
+                Company ID      : %s
+                Category        : %s
+                Company Name    : %s
+                """, applicationID, companyID, category, companyName);
+    }
+
+    @Override
+    public String getTitle() {
+        return "Visit Pass (Professional)";
     }
 }

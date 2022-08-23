@@ -146,10 +146,12 @@ public class DoublyLinkedList<E>
         linkTail(e);
     }
 
+    @Override
     public boolean contains(Object o) {
         return indexOf(o) >= 0;
     }
 
+    @Override
     public int size() {
         return size;
     }
@@ -159,11 +161,13 @@ public class DoublyLinkedList<E>
         return size == 0;
     }
 
+    @Override
     public boolean add(E e) {
         linkTail(e);
         return true;
     }
 
+    @Override
     public boolean remove(Object o) {
         if (o == null) {
             for (Node<E> x = head; x != null; x = x.next) {
@@ -192,10 +196,12 @@ public class DoublyLinkedList<E>
         return true;
     }
 
+    @Override
     public boolean addAll(E[] array) {
         return addAll(size, array);
     }
 
+    @Override
     public boolean addAll(int index, E[] array) {
         checkPositionIndex(index);
 
@@ -240,6 +246,7 @@ public class DoublyLinkedList<E>
         return true;
     }
 
+    @Override
     public void clear() {
         for (Node<E> x = head; x != null; ) {
             Node<E> next = x.next;
@@ -254,11 +261,13 @@ public class DoublyLinkedList<E>
 
     // Positional Access Operations
 
+    @Override
     public E get(int index) {
         checkElementIndex(index);
         return node(index).item;
     }
 
+    @Override
     public E set(int index, E element) {
         checkElementIndex(index);
         Node<E> x = node(index);
@@ -267,6 +276,7 @@ public class DoublyLinkedList<E>
         return oldVal;
     }
 
+    @Override
     public void add(int index, E element) {
         checkPositionIndex(index);
 
@@ -276,6 +286,7 @@ public class DoublyLinkedList<E>
             linkBefore(element, node(index));
     }
 
+    @Override
     public E remove(int index) {
         checkElementIndex(index);
         return unlink(node(index));
@@ -319,7 +330,7 @@ public class DoublyLinkedList<E>
     }
 
     // Search Operations
-
+    @Override
     public int indexOf(Object o) {
         int index = 0;
         if (o == null) {
@@ -338,6 +349,7 @@ public class DoublyLinkedList<E>
         return -1;
     }
 
+    @Override
     public int lastIndexOf(Object o) {
         int index = size;
         if (o == null) {
@@ -355,8 +367,6 @@ public class DoublyLinkedList<E>
         }
         return -1;
     }
-
-
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
@@ -475,6 +485,7 @@ public class DoublyLinkedList<E>
         }
     }
 
+    @Override
     public Object clone() {
         DoublyLinkedList<E> clone = superClone();
 
@@ -487,6 +498,7 @@ public class DoublyLinkedList<E>
         return clone;
     }
 
+    @Override
     public String toString() {
         if (size == 0)
             return "null";
