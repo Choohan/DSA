@@ -1,5 +1,7 @@
 package Passes.classes;
 
+import java.time.LocalDateTime;
+
 public class SecondHome extends VisitPass {
     private String passportNo;
     private String oldPassportNo;
@@ -9,8 +11,8 @@ public class SecondHome extends VisitPass {
         // empty constructor
     }
 
-    public SecondHome(String applicationID, String passportNo, String oldPassportNo, Country nationality) {
-        super(applicationID);
+    public SecondHome(String applicationID, String passportNo, String oldPassportNo, Country nationality, LocalDateTime applyTimestamp) {
+        super(applicationID, applyTimestamp);
         this.passportNo = passportNo;
         this.oldPassportNo = oldPassportNo;
         this.nationality = nationality;
@@ -38,5 +40,22 @@ public class SecondHome extends VisitPass {
 
     public void setNationality(Country nationality) {
         this.nationality = nationality;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                    Individual Social Visit Pass
+                ------------------------------------
+                Application ID  : %s
+                Passport No     : %s
+                Old Passport No : %s
+                Nationality     : %s
+                """, applicationID, passportNo, oldPassportNo, nationality);
+    }
+
+    @Override
+    public String getTitle() {
+        return "Malaysia Second Home Programme Pass";
     }
 }

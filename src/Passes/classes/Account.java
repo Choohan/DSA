@@ -1,6 +1,7 @@
 package Passes.classes;
 import Passes.adt.DoublyLinkedList;
 
+
 public class Account {
     private Person user;
     private DoublyLinkedList<VisitPass> passes;
