@@ -2,7 +2,7 @@ package Passes.classes;
 
 import java.time.LocalDateTime;
 
-public class VisitPass {
+public abstract class VisitPass {
     protected String applicationID;
     protected LocalDateTime applyTimestamp;
 

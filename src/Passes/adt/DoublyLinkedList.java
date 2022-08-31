@@ -379,40 +379,6 @@ public class DoublyLinkedList<E>
         return list;
     }
 
-    // Queue operations.
-
-    public E peek() {
-        final Node<E> f = head;
-        return (f == null) ? null : f.item;
-    }
-
-    public E element() {
-        return getHead();
-    }
-
-    public E poll() {
-        final Node<E> f = head;
-        return (f == null) ? null : unlinkHead(f);
-    }
-
-    public E remove() {
-        return removeHead();
-    }
-
-    public boolean offer(E e) {
-        return add(e);
-    }
-
-    public boolean offerHead(E e) {
-        addHead(e);
-        return true;
-    }
-
-    public boolean offerTail(E e) {
-        addTail(e);
-        return true;
-    }
-
     public E peekHead() {
         final Node<E> f = head;
         return (f == null) ? null : f.item;
@@ -434,11 +400,11 @@ public class DoublyLinkedList<E>
     }
 
     public void push(E e) {
-        addHead(e);
+        addTail(e);
     }
 
     public E pop() {
-        return removeHead();
+        return removeTail();
     }
 
     public boolean removeFirstOccurrence(Object o) {
